@@ -4,4 +4,5 @@
 
 ### ENDPOINTS
 POST /api/user
+
 POST /api/beer
