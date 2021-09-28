@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace OwingBeersAPI.Repository
 {
-    public class UserRepository
+    public class UserRepository: IUserRepository
     {
 
         private readonly IContextDB _context;

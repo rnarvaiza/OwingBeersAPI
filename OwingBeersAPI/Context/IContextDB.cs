@@ -14,6 +14,7 @@ namespace OwingBeersAPI.Context
     public interface IContextDB
     {
         DbSet<Beer> Beers { get; set; }
+        DbSet<User> Users { get; set; }
 
         DbSet<TEntity> Set<TEntity>() where TEntity : class;
         DatabaseFacade Database { get; }

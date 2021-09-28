@@ -29,15 +29,18 @@ namespace OwingBeersAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //Service injection of contextDB
-            services.AddDbContext<ContextDB>(o => o.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-            services.AddTransient<IContextDB, ContextDB>();
-            services.AddTransient<IBeerRepository, BeerRepository>();
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "OwingBeersAPI", Version = "v1" });
             });
+
+            //Service injection of contextDB
+            services.AddDbContext<ContextDB>(o => o.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddTransient<IContextDB, ContextDB>();
+            services.AddTransient<IUserRepository, UserRepository>();
+            services.AddTransient<IBeerRepository, BeerRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
